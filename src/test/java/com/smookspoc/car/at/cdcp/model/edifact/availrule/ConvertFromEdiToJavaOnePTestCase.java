@@ -42,16 +42,12 @@
  */
 package com.smookspoc.car.at.cdcp.model.edifact.availrule;
 
-import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import javax.xml.transform.stream.StreamSource;
 
@@ -74,11 +70,11 @@ public class ConvertFromEdiToJavaOnePTestCase {
 		URL url = uri.toURL();
 		smooks = new Smooks(url.getFile());
 
-		FileInputStream fileInputStream = new FileInputStream("C:\\dev\\smooks\\PoC\\SmooksPoC\\input-message1p.edi");
+		/*FileInputStream fileInputStream = new FileInputStream("C:\\dev\\smooks\\PoC\\SmooksPoC\\input-message1p.edi");
 		InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
 		Stream<String> streamOfString = new BufferedReader(inputStreamReader).lines();
 		String streamToString = streamOfString.collect(Collectors.joining());
-		System.out.println(streamToString);
+		System.out.println(streamToString);*/
 
 		ExecutionContext executionContext = smooks.createExecutionContext();
 		org.smooks.io.payload.JavaResult result = this.runSmooksTransform(executionContext);
