@@ -1,0 +1,372 @@
+<?xml version="1.0"?>
+<smooks-resource-list xmlns="https://www.smooks.org/xsd/smooks-2.0.xsd"
+                      xmlns:edi="https://www.smooks.org/xsd/smooks/edi-2.0.xsd"
+                      xmlns:jb="https://www.smooks.org/xsd/smooks/javabean-1.6.xsd">
+
+    <!--    <edi:parser schemaUri="/com/smookspoc/car/at/cdcp/model/edifact/availrule/onep/unmarshaller/edimappingconfig.xml" segmentTerminator="'" dataElementSeparator="+" compositeDataElementSeparator=":" escapeCharacter="?" repetitionSeparator="*" decimalSign="." />-->
+
+    <edi:parser schemaUri="/com/smookspoc/car/at/cdcp/model/edifact/availrule/edi-mapping-1p-request.dfdl.xsd" segmentTerminator="'" dataElementSeparator="+" compositeDataElementSeparator=":" escapeCharacter="?" repetitionSeparator="*" decimalSign="." />
+
+    <jb:bean beanId="EDIFACTCarAvailRuleRequest1P" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.EDIFACTCarAvailRuleRequest1P" createOnElement="EDIFACTCarAvailRuleRequest1P">
+        <jb:wiring property="uib" beanIdRef="uib" />
+        <jb:wiring property="uih" beanIdRef="uih" />
+        <jb:wiring property="msd" beanIdRef="msd" />
+        <jb:wiring property="org" beanIdRef="org" />
+        <jb:wiring property="cri" beanIdRef="cri" />
+        <jb:wiring property="itm" beanIdRef="itm" />
+        <jb:wiring property="pli" beanIdRef="pli" />
+        <jb:wiring property="pmt" beanIdRef="pmt" />
+        <jb:wiring property="rtc" beanIdRef="rtc" />
+        <jb:wiring property="tff" beanIdRef="tff" />
+        <jb:wiring property="ssr" beanIdRef="ssr" />
+        <jb:wiring property="group1" beanIdRef="group1" />
+        <jb:wiring property="group4" beanIdRef="group4_List" />
+        <jb:wiring property="uit" beanIdRef="uit" />
+        <jb:wiring property="uiz" beanIdRef="uiz" />
+    </jb:bean>
+
+    <jb:bean beanId="uib" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.Uib" createOnElement="EDIFACTCarAvailRuleRequest1P/uib" retain="true">
+        <jb:value property="transactionReference" data="#/transactionReference" />
+        <jb:value property="scenarioIdentification" data="#/scenarioIdentification" />
+        <jb:value property="dialogueIdentification" data="#/dialogueIdentification" />
+        <jb:wiring property="syntaxIdentifier" beanIdRef="syntaxIdentifier" />
+        <jb:wiring property="uibDialogueReference" beanIdRef="uibDialogueReference" />
+        <jb:wiring property="interchangeSender" beanIdRef="interchangeSender" />
+        <jb:wiring property="interchangeRecipient" beanIdRef="interchangeRecipient" />
+        <jb:wiring property="dateTimeOfInitiation" beanIdRef="dateTimeOfInitiation" />
+    </jb:bean>
+
+    <jb:bean beanId="syntaxIdentifier" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.field.SyntaxIdentifier" createOnElement="uib/syntaxIdentifier">
+        <jb:value property="syntaxIdentifier" data="#/syntaxIdentifier"/>
+        <jb:value property="syntaxVersionNumber" data="#/syntaxVersionNumber" />
+    </jb:bean>
+
+    <jb:bean beanId="uibDialogueReference" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.field.UibDialogueReference" createOnElement="uib/uibDialogueReference">
+        <jb:value property="initiatorControlReference" data="#/initiatorControlReference" default="null"/>
+    </jb:bean>
+
+    <jb:bean beanId="interchangeSender" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.field.InterchangeSender" createOnElement="uib/interchangeSender">
+        <jb:value property="interchangeSenderIdentification" data="#/interchangeSenderIdentification" />
+    </jb:bean>
+
+    <jb:bean beanId="interchangeRecipient" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.field.InterchangeRecipient" createOnElement="uib/interchangeRecipient">
+        <jb:value property="interchangeRecipientIdentification" data="#/interchangeRecipientIdentification" />
+    </jb:bean>
+
+    <jb:bean beanId="dateTimeOfInitiation" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.field.DateTimeOfInitiation" createOnElement="uib/dateTimeOfInitiation">
+        <jb:value property="eventDate" data="#/eventDate"/>
+        <jb:value property="eventTime" data="#/eventTime"/>
+    </jb:bean>
+
+    <jb:bean beanId="uih" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.Uih" createOnElement="EDIFACTCarAvailRuleRequest1P/uih">
+        <jb:value property="interactiveMessageReferenceNumber" data="#/interactiveMessageReferenceNumber"/>
+        <jb:wiring property="interactiveMessageIdentifier" beanIdRef="interactiveMessageIdentifier" />
+        <jb:wiring property="uihDialogueReference" beanIdRef="uihDialogueReference" />
+        <jb:wiring property="statusOfTransfer" beanIdRef="statusOfTransfer" />
+        <jb:wiring property="uihDateTimeOfInitiation" beanIdRef="uihDateTimeOfInitiation" />
+    </jb:bean>
+
+    <jb:bean beanId="interactiveMessageIdentifier" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.field.InteractiveMessageIdentifier" createOnElement="uih/interactiveMessageIdentifier">
+        <jb:value property="messageType" data="#/messageType"/>
+        <jb:value property="messageVersionNumber" data="#/messageVersionNumber"/>
+        <jb:value property="messageReleaseNumber" data="#/messageReleaseNumber" />
+        <jb:value property="messageTypeSubFunctionIdentification" data="#/messageTypeSubFunctionIdentification" />
+        <jb:value property="controllingAgency" data="#/controllingAgency" />
+    </jb:bean>
+
+    <jb:bean beanId="uihDialogueReference" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.field.UihDialogueReference" createOnElement="uih/uihDialogueReference">
+        <jb:value property="initiatorControlReference" data="#/initiatorControlReference"/>
+    </jb:bean>
+
+    <jb:bean beanId="statusOfTransfer" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.field.StatusOfTransfer" createOnElement="uih/sttusOfTransfer">
+        <jb:value property="senderSequenceNumber" data="#/senderSequenceNumber"/>
+        <jb:value property="transferPositionCode" data="#/transferPositionCode"/>
+    </jb:bean>
+
+    <jb:bean beanId="uihDateTimeOfInitiation" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.field.DateTimeOfInitiation" createOnElement="uih/uihDateTimeOfInitiation">
+        <jb:value property="eventDate" data="#/eventDate"/>
+        <jb:value property="eventTime" data="#/eventTime"/>
+    </jb:bean>
+
+    <jb:bean beanId="msd" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.Msd" createOnElement="EDIFACTCarAvailRuleRequest1P/msd">
+        <jb:wiring property="messageProcessingDetails" beanIdRef="messageProcessingDetails" />
+    </jb:bean>
+
+    <jb:bean beanId="messageProcessingDetails" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.field.MessageProcessingDetails" createOnElement="msd/messageProcessingDetails">
+        <jb:value property="businessFunctionCode" data="#/businessFunctionCode"/>
+        <jb:value property="messageFunctionCode" data="#/messageFunctionCode"/>
+    </jb:bean>
+
+    <jb:bean beanId="org" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.Org" createOnElement="EDIFACTCarAvailRuleRequest1P/org">
+        <jb:wiring property="deliveringSystemDetails" beanIdRef="deliveringSystemDetails" />
+        <jb:wiring property="originatorIdentificationDetails" beanIdRef="originatorIdentificationDetails" />
+        <jb:wiring property="orgLocation" beanIdRef="orgLocation" />
+        <jb:value property="partyName" data="#/partyName"/>
+        <jb:value property="originatorTypeCode" data="#/originatorTypeCode"/>
+        <jb:wiring property="originatorDetails" beanIdRef="originatorDetails" />
+        <jb:value property="originatorsAuthorityIdentification" data="#/originatorsAuthorityIdentification"/>
+    </jb:bean>
+
+    <jb:bean beanId="deliveringSystemDetails" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.field.DeliveringSystemDetails" createOnElement="org/deliveringSystemDetails">
+        <jb:value property="partyName" data="#/partyName" />
+        <jb:value property="placeLocation" data="#/placeLocation" />
+    </jb:bean>
+
+    <jb:bean beanId="originatorIdentificationDetails" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.field.OriginatorIdentificationDetails" createOnElement="org/originatorIdentificationDetails">
+        <jb:value property="agentIdentification1" data="#/agentIdentification1" />
+        <jb:value property="inHouseIdentification" data="#/inHouseIdentification"/>
+        <jb:value property="agentIdentification2" data="#/agentIdentification2"/>
+    </jb:bean>
+
+    <jb:bean beanId="orgLocation" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.field.OrgLocation" createOnElement="org/orgLocation">
+        <jb:value property="placeLocationIdentification" data="#/placeLocationIdentification"/>
+        <jb:value property="placeLocationName" data="#/placeLocationName" />
+    </jb:bean>
+
+    <jb:bean beanId="originatorDetails" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.field.OriginatorDetails" createOnElement="org/originatorDetails">
+        <jb:value property="countryCode" data="#/countryCode"/>
+    </jb:bean>
+
+    <jb:bean beanId="cri" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.Cri" createOnElement="EDIFACTCarAvailRuleRequest1P/cri">
+        <jb:wiring property="referenceIdentification" beanIdRef="referenceIdentification" />
+    </jb:bean>
+
+    <jb:bean beanId="referenceIdentification" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.field.ReferenceIdentification" createOnElement="cri/referenceIdentification">
+        <jb:value property="refQualifier" data="#/refQualifier"/>
+        <jb:value property="refNumber" data="#/refNumber"/>
+        <jb:value property="partyName" data="#/partyName"/>
+    </jb:bean>
+
+    <jb:bean beanId="itm" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.Itm" createOnElement="EDIFACTCarAvailRuleRequest1P/itm">
+        <jb:wiring property="itemNumberDetails" beanIdRef="itemNumberDetails" />
+    </jb:bean>
+
+    <jb:bean beanId="itemNumberDetails" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.field.ItemNumberDetails" createOnElement="itm/itemNumberDetails">
+        <jb:value property="itemNumber" data="#/itemNumber"/>
+    </jb:bean>
+
+    <jb:bean beanId="pli" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.Pli" createOnElement="EDIFACTCarAvailRuleRequest1P/pli">
+        <jb:wiring property="geographicalDetails" beanIdRef="geographicalDetails" />
+    </jb:bean>
+
+    <jb:bean beanId="geographicalDetails" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.field.GeographicalDetails" createOnElement="pli/geographicalDetails">
+        <jb:value property="locationQualifier" data="#/locationQualifier" />
+        <jb:value property="location" data="#/location"/>
+    </jb:bean>
+
+    <jb:bean beanId="pmt" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.Pmt" createOnElement="EDIFACTCarAvailRuleRequest1P/pmt">
+        <jb:wiring property="paymentDetails" beanIdRef="paymentDetails" />
+        <jb:wiring property="creditCardInfo" beanIdRef="creditCardInfo" />
+    </jb:bean>
+
+    <jb:bean beanId="paymentDetails" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.field.PaymentDetails" createOnElement="pmt/paymentDetails">
+        <jb:value property="fopIdentification" data="#/fopIdentification" />
+        <jb:value property="paymentTypeIdentification" data="#/paymentTypeIdentification" />
+        <jb:value property="serviceToBePaid" data="#/serviceToBePaid"/>
+        <jb:value property="monetaryAmount" data="#/monetaryAmount" />
+        <jb:value property="currencyCoded" data="#/currencyCoded" />
+        <jb:value property="referenceNumber" data="#/referenceNumber"/>
+        <jb:value property="date" data="#/date" />
+        <jb:value property="placeIdentification" data="#/placeIdentification"/>
+    </jb:bean>
+
+    <jb:bean beanId="creditCardInfo" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.field.CreditCardInfo" createOnElement="pmt/creditCardInfo">
+        <jb:value property="partyName" data="#/partyName" />
+        <jb:value property="referenceNumber" data="#/referenceNumber" />
+        <jb:value property="date" data="#/creditCardInfo/date" />
+    </jb:bean>
+
+    <jb:bean beanId="rtc" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.Rtc" createOnElement="EDIFACTCarAvailRuleRequest1P/rtc">
+        <jb:value property="rateTypeIdentificationRTC" data="#/rateTypeIdentificationRTC" />
+    </jb:bean>
+
+    <jb:bean beanId="tff" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.Tff" createOnElement="EDIFACTCarAvailRuleRequest1P/tff">
+        <jb:value property="associatedChargesInformation" data="#/associatedChargesInformation" />
+        <jb:wiring property="tariffInformation" beanIdRef="tariffInformation" />
+        <jb:wiring property="rateInformation" beanIdRef="rateInformation" />
+    </jb:bean>
+
+    <jb:bean beanId="tariffInformation" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.field.TariffInformation" createOnElement="tff/tariffInformation">
+        <jb:value property="rateTypeIdentification" data="#/rateTypeIdentification" />
+        <jb:value property="monetaryAmount" data="#/monetaryAmount"/>
+        <jb:value property="currencyCoded" data="#/currencyCoded"/>
+        <jb:value property="ratePlanCoded" data="#/ratePlanCoded"/>
+        <jb:value property="monetaryAmountTypeQualifier" data="#/monetaryAmountTypeQualifier"/>
+        <jb:value property="numberOfPeriods" data="#/numberOfPeriods"/>
+        <jb:value property="priceChangeIndicatorCoded" data="#/priceChangeIndicatorCoded"/>
+        <jb:value property="totalMonetaryAmount" data="#/totalMonetaryAmount"/>
+        <jb:value property="dateFirst" data="#/tariffInformation/dateFirst"/>
+        <jb:value property="dateSecond" data="#/tariffInformation/dateSecond"/>
+        <jb:value property="specialConditionsCoded" data="#/specialConditionsCoded"/>
+    </jb:bean>
+
+    <jb:bean beanId="rateInformation" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.field.RateInformation" createOnElement="tff/rateInformation">
+        <jb:value property="rateTariffClassIdentification" data="#/rateTariffClassIdentification" />
+        <jb:value property="monetaryAmount" data="#/monetaryAmount"/>
+        <jb:value property="currencyCoded" data="#/currencyCoded"/>
+        <jb:value property="ratePlanCoded" data="#/ratePlanCoded"/>
+    </jb:bean>
+
+    <jb:bean beanId="ssr" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.Ssr" createOnElement="EDIFACTCarAvailRuleRequest1P/ssr">
+        <jb:wiring property="specialRequirementTypeDetails" beanIdRef="specialRequirementTypeDetails" />
+        <jb:wiring property="specialRequirementDetails" beanIdRef="specialRequirementDetails" />
+    </jb:bean>
+
+    <jb:bean beanId="specialRequirementTypeDetails" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.field.SpecialRequirementTypeDetails" createOnElement="ssr/specialRequirementTypeDetails">
+        <jb:value property="specialRequirementTypeIdentification" data="#/specialRequirementTypeIdentification" />
+    </jb:bean>
+
+    <jb:bean beanId="specialRequirementDetails" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.field.SpecialRequirementDetails" createOnElement="ssr/specialRequirementDetails">
+        <jb:value property="specialRequirementDetails" data="#/specialRequirementDetails"/>
+    </jb:bean>
+
+    <jb:bean beanId="group1" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.Group1" createOnElement="EDIFACTCarAvailRuleRequest1P/group1">
+        <jb:wiring property="tvl" beanIdRef="tvl" />
+        <jb:wiring property="prd" beanIdRef="prd" />
+    </jb:bean>
+
+    <jb:bean beanId="tvl" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.Tvl" createOnElement="group1/tvl">
+        <jb:wiring property="productDateAndTime" beanIdRef="productDateAndTime" />
+        <jb:wiring property="tvlLocation" beanIdRef="tvlLocation" />
+        <jb:wiring property="companyIdentification" beanIdRef="companyIdentification" />
+    </jb:bean>
+
+    <jb:bean beanId="productDateAndTime" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.field.ProductDateAndTime" createOnElement="tvl/productDateAndTime">
+        <jb:value property="pickupDate" data="#/pickupDate"/>
+        <jb:value property="pickupTime" data="#/pickupTime"/>
+        <jb:value property="dropOffDate" data="#/dropOffDate"/>
+        <jb:value property="dropOffTime" data="#/dropOffTime"/>
+    </jb:bean>
+
+    <jb:bean beanId="tvlLocation" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.field.TvlLocation" createOnElement="tvl/tvlLocation">
+        <jb:value property="placeLocation" data="#/placeLocation"/>
+        <jb:value property="placeLocationName" data="#/placeLocationName"/>
+    </jb:bean>
+
+    <jb:bean beanId="companyIdentification" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.field.CompanyIdentification" createOnElement="tvl/companyIdentification">
+        <jb:value property="partyName" data="#/partyName" />
+    </jb:bean>
+
+    <jb:bean beanId="prd" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.Prd" createOnElement="group1/prd">
+        <jb:wiring property="productIdentificationDetails" beanIdRef="productIdentificationDetails" />
+    </jb:bean>
+
+    <jb:bean beanId="productIdentificationDetails" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.field.ProductIdentificationDetails" createOnElement="prd/productIdentificationDetails">
+        <jb:value property="productIdentification" data="#/productIdentification"/>
+        <jb:value property="characteristicIdentification" data="#/characteristicIdentification"/>
+    </jb:bean>
+    
+  	<jb:bean beanId="group4_List" class="java.util.ArrayList" createOnElement="EDIFACTCarAvailRuleRequest1P">
+        <jb:wiring beanIdRef="group4" />
+    </jb:bean>
+
+    <jb:bean beanId="group4" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.Group4" createOnElement="EDIFACTCarAvailRuleRequest1P/group4">
+        <jb:wiring property="rti" beanIdRef="rti" />
+    </jb:bean>
+
+    <jb:bean beanId="rti" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.Rti" createOnElement="group4/rti">
+        <jb:wiring property="rateIdentificationDetails" beanIdRef="rateIdentificationDetails" />
+    </jb:bean>
+    
+    <jb:bean beanId="rateIdentificationDetails" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.field.RateIdentificationDetails" createOnElement="rti/rateIdentificationDetails">
+        <jb:value property="rateTariffClassIdentificationCode" data="#/rateTariffClassIdentificationCode" default="null"/>
+    </jb:bean>
+    
+    <jb:bean beanId="uit" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.Uit" createOnElement="EDIFACTCarAvailRuleRequest1P/uit">
+        <jb:value property="interactiveMessageReferenceNumber" data="#/interactiveMessageReferenceNumber"/>
+        <jb:value property="numberOfSegments" data="#/numberOfSegments" />
+    </jb:bean>
+
+    <jb:bean beanId="uiz" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.Uiz" createOnElement="EDIFACTCarAvailRuleRequest1P/uiz">
+        <jb:wiring property="uizDialogueReference" beanIdRef="uizDialogueReference" />
+    </jb:bean>
+
+    <jb:bean beanId="uizDialogueReference" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.onep.request.field.UizDialogueReference" createOnElement="uiz/uizDialogueReference">
+        <jb:value property="initiatorControlReference" data="#/initiatorControlReference"/>
+    </jb:bean>
+    
+     <jb:bean beanId="rootBeanRequest" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.dataconverter.request.RootElementForRequestBean" createOnElement="EDIFACTCarAvailRuleRequest1P">
+		<jb:wiring beanIdRef="criBean" property="criBean"/>
+	</jb:bean>
+	
+	<!-- start CRI -->
+	<jb:bean beanId="criBean" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.dataconverter.request.ConsumerReferenceInformationBeanList" createOnElement="cri">
+		<jb:wiring beanIdRef="consumerReferenceIdentificationList" property="consumerReferenceIdentificationList"/>
+	</jb:bean>
+	<jb:bean beanId="consumerReferenceIdentificationList" class="java.util.ArrayList" createOnElement="cri">
+		<jb:wiring beanIdRef="consumerReferenceIdentification"/>
+	</jb:bean>
+	<jb:bean beanId="consumerReferenceIdentification" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.dataconverter.request.ConsumerReferenceIdentification" createOnElement="referenceIdentification">
+		<jb:value property="referenceQualifier" data="#/refQualifier"/>
+		<jb:value property="referenceNumber" data="#/refNumber"/>
+		<jb:value property="partyNumber" data="#/partyName"/>
+	</jb:bean>
+	<!-- end CRI -->
+	<!-- start PLI -->
+	<jb:bean beanId="pliBean" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.dataconverter.request.GeographicalDetailsBeanList" createOnElement="pli">
+		<jb:wiring beanIdRef="geographicalDetailsList" property="geographicalDetailsList"/>
+	</jb:bean>
+	<jb:bean beanId="geographicalDetailsList" class="java.util.ArrayList" createOnElement="pli">
+		<jb:wiring beanIdRef="geographicalDetailsBean"/>
+	</jb:bean>
+	<jb:bean beanId="geographicalDetailsBean" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.dataconverter.request.GeographicalDetails" createOnElement="geographicalDetails">
+		<jb:value property="placeLocationQualifier" data="#/locationQualifier"/>
+		<jb:value property="placeLocation" data="#/location"/>
+	</jb:bean>
+	<!-- end PLI -->
+	<!-- start RTC-->
+	<jb:bean beanId="rtcBean" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.dataconverter.request.RateTypeIdentificationBeanList" createOnElement="rtc">
+		<jb:wiring beanIdRef="rateTypeIdentificationList" property="rateTypeIdentificationList"/>
+	</jb:bean>
+	<jb:bean beanId="rateTypeIdentificationList" class="java.util.ArrayList" createOnElement="rtc">
+		<jb:value data="#/rateTypeIdentificationRTC"/>
+	</jb:bean>
+	<!--end RTC -->
+	<!-- start PRD-->
+	<jb:bean beanId="prdBean" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.dataconverter.request.ProductInformationDetailsBeanList" createOnElement="prd">
+		<jb:wiring beanIdRef="productInformationDetailsList" property="productInformationDetailsList"/>
+	</jb:bean>
+	<jb:bean beanId="productInformationDetailsList" class="java.util.ArrayList" createOnElement="prd">
+		<jb:wiring beanIdRef="productInformationDetailsBean"/>
+	</jb:bean>
+	<jb:bean beanId="productInformationDetailsBean" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.dataconverter.request.ProductInformationDetails" createOnElement="productIdentificationDetails">
+		<jb:value property="productIdentificationElement" data="#/productIdentification"/>
+		<jb:value property="characteristicIdentificationElement" data="#/characteristicIdentification"/>
+	</jb:bean>
+	<!-- end PRD -->
+	<!-- start RTI-->
+	<!--jb:bean beanId="rtiBean" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.dataconverter.request.RateIdentificationDetailsBeanList" createOnElement="rti">
+		<jb:wiring beanIdRef="rateIdentificationDetailsList" property="rateIdentificationDetailsList"/>
+	</jb:bean>
+	<jb:bean beanId="rateIdentificationDetailsList" class="java.util.ArrayList" createOnElement="rti">
+		<jb:wiring beanIdRef="rateIdentificationDetailsBean"/>
+	</jb:bean>
+	<jb:bean beanId="rateIdentificationDetailsBean" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.dataconverter.request.RateIdentificationDetailsBean" createOnElement="rateIdentificationDetails">
+		<jb:value property="rateTariffClassIdentificationCode" data="#/rateIdentificationCoded"/>
+	</jb:bean-->
+	<!-- end RTI -->
+	<!-- start TVL-->
+	<jb:bean beanId="tvlBean" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.dataconverter.request.LocationDetailsBeanList" createOnElement="tvl">
+		<jb:wiring beanIdRef="locationlDetailsList" property="locationlDetailsList"/>
+	</jb:bean>
+	<jb:bean beanId="locationlDetailsList" class="java.util.ArrayList" createOnElement="tvl">
+		<jb:wiring beanIdRef="locationDetailsBean"/>
+	</jb:bean>
+	<jb:bean beanId="locationDetailsBean" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.dataconverter.request.LocationDetails" createOnElement="tvlLocation">
+		<jb:value property="location" data="#/placeLocation"/>
+		<jb:value property="locationName" data="#/placeLocationName"/>
+	</jb:bean>
+	<!-- end TVL -->
+	<!-- start SSR-->
+	<jb:bean beanId="ssrBean" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.dataconverter.request.SpecialRequirementsDetailsBeanList" createOnElement="ssr">
+		<jb:wiring beanIdRef="specialRequirementDetailsList" property="specialRequirementDetailsList"/>
+	</jb:bean>
+	<jb:bean beanId="specialRequirementDetailsList" class="java.util.ArrayList" createOnElement="ssr">
+		<jb:wiring beanIdRef="specialReqDetailsBean"/>
+	</jb:bean>
+	<jb:bean beanId="specialReqDetailsBean" class="com.smookspoc.car.at.cdcp.model.edifact.availrule.dataconverter.request.SpecialReqDetails" createOnElement="specialRequirementDetails">
+		<jb:value property="requirementDetails" data="#/specialRequirementDetails"/>
+	</jb:bean>
+	<!-- end SSR -->
+  
+</smooks-resource-list>

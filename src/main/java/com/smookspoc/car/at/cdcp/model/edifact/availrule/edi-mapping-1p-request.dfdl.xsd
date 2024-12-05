@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:dfdl="http://www.ogf.org/dfdl/dfdl-1.0/"
+	xmlns:ibmEdiFmt="http://www.ibm.com/dfdl/EDI/Format">
+
+	<xsd:import namespace="http://www.ibm.com/dfdl/EDI/Format" schemaLocation="/EDIFACT-Common/IBM_EDI_Format.dfdl.xsd" />
+
+	<xsd:annotation>
+		<xsd:appinfo source="http://www.ogf.org/dfdl/">
+			<dfdl:format ref="ibmEdiFmt:EDIFormat" />
+		</xsd:appinfo>
+	</xsd:annotation>
+
+    <xsd:element name="EDIFACTCarAvailRuleRequest1P">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:sequence>
+                    <xsd:element dfdl:initiator="UIB" name="uib" minOccurs="1" maxOccurs="1" dfdl:ref="ibmEdiFmt:EDISegmentFormat">
+                        <xsd:complexType>
+                            <xsd:sequence dfdl:ref="ibmEdiFmt:EDISegmentSequenceFormat">
+                                <xsd:element name="syntaxIdentifier">
+                                    <xsd:complexType>
+                                        <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
+                                            <xsd:element name="syntaxIdentifier" type="xsd:string"/>
+                                            <xsd:element name="syntaxVersionNumber" type="xsd:string"/>
+                                        </xsd:sequence>
+                                    </xsd:complexType>
+                                </xsd:element>
+                                <xsd:element name="uibDialogueReference" minOccurs="0">
+                                    <xsd:complexType>
+                                        <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
+                                            <xsd:element name="initiatorControlReference" type="xsd:string"/>
+                                        </xsd:sequence>
+                                    </xsd:complexType>
+                                </xsd:element>
+                                <xsd:element name="transactionReference" type="xsd:string" minOccurs="0"/>
+                                <xsd:element name="scenarioIdentification" type="xsd:string" minOccurs="0"/>
+                                <xsd:element name="dialogueIdentification" type="xsd:string" minOccurs="0"/>
+                                <xsd:element name="interchangeSender" minOccurs="0">
+                                    <xsd:complexType>
+                                        <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
+                                            <xsd:element name="interchangeSenderIdentification" type="xsd:string"/>
+                                        </xsd:sequence>
+                                    </xsd:complexType>
+                                </xsd:element>
+                                <xsd:element name="interchangeRecipient" minOccurs="0">
+                                    <xsd:complexType>
+                                        <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
+                                            <xsd:element name="interchangeRecipientIdentification" type="xsd:string"/>
+                                        </xsd:sequence>
+                                    </xsd:complexType>
+                                </xsd:element>
+                                <xsd:element name="dateTimeOfInitiation" minOccurs="0">
+                                    <xsd:complexType>
+                                        <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
+                                            <xsd:element name="eventDate" type="xsd:string" minOccurs="0"/>
+                                            <xsd:element name="eventTime" type="xsd:string" minOccurs="0"/>
+                                        </xsd:sequence>
+                                    </xsd:complexType>
+                                </xsd:element>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+
+                    <xsd:element dfdl:initiator="UIH" name="uih" minOccurs="1" maxOccurs="1" dfdl:ref="ibmEdiFmt:EDISegmentFormat">
+                        <xsd:complexType>
+                            <xsd:sequence dfdl:ref="ibmEdiFmt:EDISegmentSequenceFormat">
+                                <xsd:element name="interactiveMessageIdentifier">
+                                    <xsd:complexType>
+                                        <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
+                                            <xsd:element name="messageType" type="xsd:string"/>
+                                            <xsd:element name="messageVersionNumber" type="xsd:string"/>
+                                            <xsd:element name="messageReleaseNumber" type="xsd:string"/>
+                                            <xsd:element name="messageTypeSubFunctionIdentification" type="xsd:string" minOccurs="0"/>
+                                            <xsd:element name="controllingAgency" type="xsd:string"/>
+                                        </xsd:sequence>
+                                    </xsd:complexType>
+                                </xsd:element>
+                                <xsd:element name="interactiveMessageReferenceNumber" type="xsd:string" minOccurs="0"/>
+                                <xsd:element name="uihDialogueReference" minOccurs="0">
+                                    <xsd:complexType>
+                                        <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
+                                            <xsd:element name="initiatorControlReference" type="xsd:string"/>
+                                        </xsd:sequence>
+                                    </xsd:complexType>
+                                </xsd:element>
+                                <xsd:element name="statusOfTransfer" minOccurs="0">
+                                    <xsd:complexType>
+                                        <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
+                                            <xsd:element name="senderSequenceNumber" type="xsd:string" minOccurs="0"/>
+                                            <xsd:element name="transferPositionCode" type="xsd:string" minOccurs="0"/>
+                                        </xsd:sequence>
+                                    </xsd:complexType>
+                                </xsd:element>
+                                <xsd:element name="uihDateTimeOfInitiation" minOccurs="0">
+                                    <xsd:complexType>
+                                        <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
+                                            <xsd:element name="eventDate" type="xsd:string" minOccurs="0"/>
+                                            <xsd:element name="eventTime" type="xsd:string" minOccurs="0"/>
+                                        </xsd:sequence>
+                                    </xsd:complexType>
+                                </xsd:element>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+
+                    <xsd:element dfdl:initiator="MSD" name="msd" minOccurs="0" maxOccurs="1" dfdl:ref="ibmEdiFmt:EDISegmentFormat">
+                        <xsd:complexType>
+                            <xsd:sequence dfdl:ref="ibmEdiFmt:EDISegmentSequenceFormat">
+                                <xsd:element name="messageProcessingDetails" minOccurs="0">
+                                    <xsd:complexType>
+                                        <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
+                                            <xsd:element name="businessFunctionCode" type="xsd:string"/>
+                                            <xsd:element name="messageFunctionCode" type="xsd:string"/>
+                                        </xsd:sequence>
+                                    </xsd:complexType>
+                                </xsd:element>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+    
+                    <xsd:element dfdl:initiator="ORG" name="org" minOccurs="0" maxOccurs="1" dfdl:ref="ibmEdiFmt:EDISegmentFormat">
+                        <xsd:complexType>
+                            <xsd:sequence dfdl:ref="ibmEdiFmt:EDISegmentSequenceFormat">
+                                <xsd:element name="deliveringSystemDetails" minOccurs="0">
+                                    <xsd:complexType>
+                                        <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
+                                            <xsd:element name="partyName" type="xsd:string" minOccurs="0" />
+                                            <xsd:element name="placeLocation" type="xsd:string" minOccurs="0" />
+                                        </xsd:sequence>
+                                    </xsd:complexType>
+                                </xsd:element>
+                                <xsd:element name="originatorIdentificationDetails" minOccurs="0">
+                                    <xsd:complexType>
+                                        <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
+                                            <xsd:element name="agentIdentification1" type="xsd:string" minOccurs="0" />
+                                            <xsd:element name="inHouseIdentification" type="xsd:string" minOccurs="0" />
+                                            <xsd:element name="agentIdentification2" type="xsd:string" minOccurs="0" />
+                                        </xsd:sequence>
+                                    </xsd:complexType>
+                                </xsd:element>
+                                <xsd:element name="orgLocation" minOccurs="0">
+                                    <xsd:complexType>
+                                        <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
+                                            <xsd:element name="placeLocationIdentification" type="xsd:string" minOccurs="0" />
+                                            <xsd:element name="placeLocationName" type="xsd:string" minOccurs="0"/>
+                                        </xsd:sequence>
+                                    </xsd:complexType>
+                                </xsd:element>
+                                <xsd:element name="partyName" type="xsd:string" minOccurs="0"/>
+                                <xsd:element name="originatorTypeCode" type="xsd:string" minOccurs="0"/>
+                                <xsd:element name="originatorDetails" minOccurs="0">
+                                    <xsd:complexType>
+                                        <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
+                                            <xsd:element name="countryCode" type="xsd:string"/>
+                                        </xsd:sequence>
+                                    </xsd:complexType>
+                                </xsd:element>
+                                <xsd:element name="originatorsAuthorityIdentification" type="xsd:string" minOccurs="0"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+
+                    <xsd:element dfdl:initiator="CRI" name="cri" minOccurs="0" maxOccurs="1" dfdl:ref="ibmEdiFmt:EDISegmentFormat">
+                        <xsd:complexType>
+                            <xsd:sequence dfdl:ref="ibmEdiFmt:EDISegmentSequenceFormat">
+                                <xsd:element name="referenceIdentification">
+                                    <xsd:complexType>
+                                        <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
+                                            <xsd:element name="refQualifier" type="xsd:string"/>
+                                            <xsd:element name="refNumber" type="xsd:string" minOccurs="0"/>
+                                            <xsd:element name="partyName" type="xsd:string" minOccurs="0"/>
+                                        </xsd:sequence>
+                                    </xsd:complexType>
+                                </xsd:element>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+
+                    <xsd:element dfdl:initiator="ITM" name="itm" minOccurs="0" maxOccurs="1" dfdl:ref="ibmEdiFmt:EDISegmentFormat">
+                        <xsd:complexType>
+                            <xsd:sequence dfdl:ref="ibmEdiFmt:EDISegmentSequenceFormat">
+                                <xsd:element name="itemNumberDetails">
+                                    <xsd:complexType>
+                                        <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
+                                            <xsd:element name="itemNumber" type="xsd:string"/>
+                                        </xsd:sequence>
+                                    </xsd:complexType>
+                                </xsd:element>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+
+                    <xsd:element dfdl:initiator="PLI" name="pli" minOccurs="0" maxOccurs="1" dfdl:ref="ibmEdiFmt:EDISegmentFormat">
+                        <xsd:complexType>
+                            <xsd:sequence dfdl:ref="ibmEdiFmt:EDISegmentSequenceFormat">
+                                <xsd:element name="geographicalDetails">
+                                    <xsd:complexType>
+                                        <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
+                                            <xsd:element name="locationQualifier" type="xsd:string" minOccurs="0"/>
+                                            <xsd:element name="location" type="xsd:string" minOccurs="0"/>
+                                        </xsd:sequence>
+                                    </xsd:complexType>
+                                </xsd:element>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+
+                    <xsd:element dfdl:initiator="PMT" name="pmt" minOccurs="0" maxOccurs="1" dfdl:ref="ibmEdiFmt:EDISegmentFormat">
+                        <xsd:complexType>
+                            <xsd:sequence dfdl:ref="ibmEdiFmt:EDISegmentSequenceFormat">
+                                <xsd:element name="paymentDetails">
+                                    <xsd:complexType>
+                                        <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
+                                            <xsd:element name="fopIdentification" type="xsd:string"/>
+                                            <xsd:element name="paymentTypeIdentification" type="xsd:string"/>
+                                            <xsd:element name="serviceToBePaid" type="xsd:string"/>
+                                            <xsd:element name="monetaryAmount" type="xsd:string"/>
+                                            <xsd:element name="currencyCoded" type="xsd:string"/>
+                                            <xsd:element name="referenceNumber" type="xsd:string"/>
+                                            <xsd:element name="date" type="xsd:string"/>
+                                            <xsd:element name="placeIdentification" type="xsd:string"/>
+                                        </xsd:sequence>
+                                    </xsd:complexType>
+                                </xsd:element>
+                                <xsd:element name="creditCardInfo">
+                                    <xsd:complexType>
+                                        <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
+                                            <xsd:element name="partyName" type="xsd:string"/>
+                                            <xsd:element name="referenceNumber" type="xsd:string" minOccurs="0"/>
+                                            <xsd:element name="date" type="xsd:string" minOccurs="0"/>
+                                        </xsd:sequence>
+                                    </xsd:complexType>
+                                </xsd:element>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+
+                    <xsd:element dfdl:initiator="RTC" name="rtc" minOccurs="0" maxOccurs="1" dfdl:ref="ibmEdiFmt:EDISegmentFormat">
+                        <xsd:complexType>
+                            <xsd:sequence dfdl:ref="ibmEdiFmt:EDISegmentSequenceFormat">
+                                <xsd:element name="rateTypeIdentificationRTC" type="xsd:string"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+
+                    <xsd:element dfdl:initiator="TFF" name="tff" minOccurs="0" maxOccurs="9" dfdl:ref="ibmEdiFmt:EDISegmentFormat">
+                        <xsd:complexType>
+                            <xsd:sequence dfdl:ref="ibmEdiFmt:EDISegmentSequenceFormat">
+                                <xsd:element name="tariffInformation">
+                                    <xsd:complexType>
+                                        <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
+                                            <xsd:element name="rateTypeIdentification" type="xsd:string"/>
+                                            <xsd:element name="monetaryAmount" type="xsd:string"/>
+                                            <xsd:element name="currencyCoded" type="xsd:string"/>
+                                            <xsd:element name="ratePlanCoded" type="xsd:string"/>
+                                            <xsd:element name="monetaryAmountTypeQualifier" type="xsd:string"/>
+                                            <xsd:element name="numberOfPeriods" type="xsd:string"/>
+                                            <xsd:element name="priceChangeIndicatorCoded" type="xsd:string"/>
+                                            <xsd:element name="totalMonetaryAmount" type="xsd:string"/>
+                                            <xsd:element name="dateFirst" type="xsd:string"/>
+                                            <xsd:element name="dateSecond" type="xsd:string"/>
+                                            <xsd:element name="specialConditionsCoded" type="xsd:string"/>
+                                        </xsd:sequence>
+                                    </xsd:complexType>
+                                </xsd:element>
+                                <xsd:element name="rateInformation">
+                                    <xsd:complexType>
+                                        <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
+                                            <xsd:element name="rateTariffClassIdentification" type="xsd:string"/>
+                                            <xsd:element name="monetaryAmount" type="xsd:string"/>
+                                            <xsd:element name="currencyCoded" type="xsd:string"/>
+                                            <xsd:element name="ratePlanCoded" type="xsd:string"/>
+                                        </xsd:sequence>
+                                    </xsd:complexType>
+                                </xsd:element>
+                                <xsd:element name="associatedChargesInformation" type="xsd:string" minOccurs="0"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+
+                    <xsd:element dfdl:initiator="SSR" name="ssr" minOccurs="0" maxOccurs="9" dfdl:ref="ibmEdiFmt:EDISegmentFormat">
+                        <xsd:complexType>
+                            <xsd:sequence dfdl:ref="ibmEdiFmt:EDISegmentSequenceFormat">
+                                <xsd:element name="specialRequirementTypeDetails">
+                                    <xsd:complexType>
+                                        <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
+                                            <xsd:element name="specialRequirementTypeIdentification" type="xsd:string"/>
+                                        </xsd:sequence>
+                                    </xsd:complexType>
+                                </xsd:element>
+                                <xsd:element name="specialRequirementDetails">
+                                    <xsd:complexType>
+                                        <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
+                                            <xsd:element name="specialRequirementDetails" type="xsd:string"/>
+                                        </xsd:sequence>
+                                    </xsd:complexType>
+                                </xsd:element>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+
+                    <!--xsd:element name="group1" minOccurs="0" maxOccurs="99" dfdl:ref="ibmEdiFmt:EDISegmentFormat">
+                        <xsd:complexType>
+                            <xsd:sequence dfdl:ref="ibmEdiFmt:EDISegmentSequenceFormat">
+                                <xsd:element dfdl:initiator="TVL" name="tvl" minOccurs="1" maxOccurs="1" dfdl:ref="ibmEdiFmt:EDISegmentFormat">
+                                    <xsd:complexType>
+                                        <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
+                                            <xsd:element name="productDateAndTime">
+                                                <xsd:complexType>
+                                                    <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
+                                                        <xsd:element name="pickupDate" type="xsd:string"/>
+                                                        <xsd:element name="pickupTime" type="xsd:string"/>
+                                                        <xsd:element name="dropOffDate" type="xsd:string"/>
+                                                        <xsd:element name="dropOffTime" type="xsd:string"/>
+                                                    </xsd:sequence>
+                                                </xsd:complexType>
+                                            </xsd:element>
+                                            <xsd:element name="tvlLocation">
+                                                <xsd:complexType>
+                                                    <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
+                                                        <xsd:element name="placeLocation" type="xsd:string"/>
+                                                        <xsd:element name="placeLocationName" type="xsd:string"/>
+                                                    </xsd:sequence>
+                                                </xsd:complexType>
+                                            </xsd:element>
+                                            <xsd:element name="companyIdentification">
+                                                <xsd:complexType>
+                                                    <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
+                                                        <xsd:element name="partyName" type="xsd:string"/>
+                                                    </xsd:sequence>
+                                                </xsd:complexType>
+                                            </xsd:element>
+                                        </xsd:sequence>
+                                    </xsd:complexType>
+                                </xsd:element>
+                                <xsd:element dfdl:initiator="PRD" name="prd" minOccurs="0" maxOccurs="1" dfdl:ref="ibmEdiFmt:EDISegmentFormat">
+                                    <xsd:complexType>
+                                        <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
+                                            <xsd:element name="productIdentificationDetails">
+                                                <xsd:complexType>
+                                                    <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
+                                                        <xsd:element name="productIdentification" type="xsd:string"/>
+                                                        <xsd:element name="characteristicIdentification" type="xsd:string"/>
+                                                    </xsd:sequence>
+                                                </xsd:complexType>
+                                            </xsd:element>
+                                        </xsd:sequence>
+                                    </xsd:complexType>
+                                </xsd:element>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element-->
+   	
+                   	<xsd:element name="group4" minOccurs="0" maxOccurs="99"  dfdl:ref="ibmEdiFmt:EDISegmentFormat">
+						<xsd:complexType>
+                          	<xsd:sequence dfdl:ref="ibmEdiFmt:EDISegmentSequenceFormat">
+                          		 <xsd:element dfdl:initiator="RTI" name="rti" minOccurs="1" maxOccurs="1" dfdl:ref="ibmEdiFmt:EDISegmentFormat">
+			                        <xsd:complexType>
+			                            <xsd:sequence dfdl:ref="ibmEdiFmt:EDISegmentSequenceFormat">
+			                                <xsd:element name="rateIdentificationDetails">
+			                                    <xsd:complexType>
+			                                        <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
+			                                            <xsd:element name="rateTariffClassIdentificationCode" type="xsd:string"/>
+			                                        </xsd:sequence>
+			                                    </xsd:complexType>
+			                                </xsd:element>
+			                            </xsd:sequence>
+			                        </xsd:complexType>
+			                    </xsd:element>
+			                 </xsd:sequence>
+			             </xsd:complexType>
+			         </xsd:element>
+			                 		
+					 <xsd:element dfdl:initiator="UIT" name="uit" minOccurs="0" maxOccurs="1" dfdl:ref="ibmEdiFmt:EDISegmentFormat">
+                        <xsd:complexType>
+                            <xsd:sequence dfdl:ref="ibmEdiFmt:EDISegmentSequenceFormat">          
+                         		<xsd:element name="interactiveMessageReferenceNumber" type="xsd:string" minOccurs="0"/>
+                                <xsd:element name="numberOfSegments" type="xsd:string" minOccurs="0"/>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+
+                    <xsd:element dfdl:initiator="UIZ" name="uiz" minOccurs="0" maxOccurs="1" dfdl:ref="ibmEdiFmt:EDISegmentFormat">
+                        <xsd:complexType>
+                            <xsd:sequence dfdl:ref="ibmEdiFmt:EDISegmentSequenceFormat">
+                                <xsd:element name="uizDialogueReference">
+                                    <xsd:complexType>
+                                        <xsd:sequence dfdl:ref="ibmEdiFmt:EDICompositeSequenceFormat">
+                                            <xsd:element name="initiatorControlReference" type="xsd:string"/>
+                                        </xsd:sequence>
+                                    </xsd:complexType>
+                                </xsd:element>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>
